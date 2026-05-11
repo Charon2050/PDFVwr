@@ -1,0 +1,17 @@
+{
+  "$schema": "https://schema.tauri.app/config/2/capability",
+  "identifier": "default",
+  "description": "Default capabilities for PDFVwr",
+  "windows": ["main"],
+  "permissions": [
+    "core:default",
+    "core:event:default",
+    "core:window:default",
+    "core:window:allow-set-title",
+    "core:webview:default",
+    "core:app:default",
+    "core:path:default",
+    "core:image:default",
+    "dialog:allow-open"
+  ]
+}

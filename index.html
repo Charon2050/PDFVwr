@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDFVwr</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+
+      html, body {
+        width: 100%; height: 100%;
+        overflow: hidden;
+        background: #2b2b2b;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        color: #e0e0e0;
+        user-select: none;
+      }
+
+      #app { width: 100%; height: 100%; }
+
+      /* ── Welcome / drop zone ── */
+      #welcome {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        background: #2b2b2b;
+        cursor: pointer;
+        z-index: 10;
+      }
+      #welcome.hidden { display: none; }
+
+      #welcome svg { opacity: 0.3; transition: opacity 0.15s; }
+      #welcome:hover svg, #welcome.drag-over svg { opacity: 0.55; }
+
+      #welcome h2 {
+        font-size: 17px;
+        font-weight: 400;
+        color: #999;
+        transition: color 0.15s;
+      }
+      #welcome p { font-size: 12px; color: #555; }
+
+      #welcome:hover h2  { color: #bbb; }
+      #welcome.drag-over { background: #1e3045; outline: 2px dashed #4a9eff; outline-offset: -12px; }
+      #welcome.drag-over h2 { color: #4a9eff; }
+
+      /* ── PDF iframe ── */
+      #pdf-frame {
+        width: 100%; height: 100%;
+        border: none;
+        display: none;
+        background: #404040;
+      }
+      #pdf-frame.visible { display: block; }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <div id="welcome">
+        <svg width="72" height="72" viewBox="0 0 24 24" fill="none"
+             stroke="#ccc" stroke-width="1.2">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="12" y1="12" x2="12" y2="18"/>
+          <line x1="9" y1="15" x2="15" y2="15"/>
+        </svg>
+        <h2>点击打开 PDF 文件</h2>
+        <p>或将文件拖入此处 · Ctrl+O</p>
+      </div>
+      <iframe id="pdf-frame"></iframe>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
