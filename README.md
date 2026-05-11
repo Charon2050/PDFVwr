@@ -13,7 +13,7 @@ Download the executable file from the Release page of this project, place it in 
 <details>
 
 <summary>
-Rust + msvc runtime environment is required. Please install it first if not available.  
+Rust + msvc runtime environment is required. Please install it first if not available.<br>
 需要 Rust + msvc 运行环境。如果没有，请先安装。
 </summary>
 
